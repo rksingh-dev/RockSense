@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RockAnalyzer - Mineral Analysis Dashboard</title>
+    <link rel="stylesheet" href="library.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-logo">
+            <img src="https://api.iconify.design/lucide:mountain.svg" alt="RockAnalyzer Logo" class="logo-icon">
+            <span>RockAnalyzer</span>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <div class="search-section">
+            <div class="search-box">
+                <input type="text" id="rock-search" placeholder="Enter rock name (e.g., Granite, Basalt, Limestone)">
+                <button id="search-btn">
+                    <img src="https://api.iconify.design/lucide:search.svg" alt="Search" class="search-icon">
+                    Analyze
+                </button>
+            </div>
+            <div class="popular-rocks">
+                <span class="tag" data-rock="Granite">Granite</span>
+                <span class="tag" data-rock="Basalt">Basalt</span>
+                <span class="tag" data-rock="Limestone">Limestone</span>
+            </div>
+        </div>
+
+        <div id="loading-spinner" class="loading-spinner" style="display: none">
+            <div class="spinner"></div>
+        </div>
+
+        <div id="error-message" class="error-message" style="display: none"></div>
+
+        <div id="analysis-container" class="analysis-container" style="display: none">
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Rock Type</h3>
+                    <p id="rock-type"></p>
+                </div>
+                <div class="info-card">
+                    <h3>Classification</h3>
+                    <p id="classification"></p>
+                </div>
+                <div class="info-card">
+                    <h3>Chemical Formula</h3>
+                    <p id="formula"></p>
+                </div>
+            </div>
+
+            <div class="description-card">
+                <h3>Description</h3>
+                <p id="description"></p>
+            </div>
+
+            <div class="visualization-grid">
+                <div class="chart-card">
+                    <h3>Composition</h3>
+                    <canvas id="compositionChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>Properties Distribution</h3>
+                    <canvas id="propertiesChart"></canvas>
+                </div>
+            </div>
+
+            <div class="locations-section">
+                <h3>Common Occurrences</h3>
+                <div id="location-list" class="location-list"></div>
+            </div>
+
+            <div class="action-buttons">
+                <button id="download-btn" class="action-btn">
+                    <img src="https://api.iconify.design/lucide:download.svg" alt="Download" class="btn-icon">
+                    Download Report
+                </button>
+                <button id="share-btn" class="action-btn">
+                    <img src="https://api.iconify.design/lucide:share-2.svg" alt="Share" class="btn-icon">
+                    Share Analysis
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="library.js" type="module"></script>
+</body>
+
+</html>
